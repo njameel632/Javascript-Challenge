@@ -20,11 +20,20 @@ function buildTable(ufos) {
 buildTable(tableData);
 
 // Creating a Function to take input date and filter as entries as per input
-function handleClick() {
-    var inputElement = d3.select("#datetime");
+var button = d3.select("#filter-btn");
+button.on("click", function() {
+    tbody.html("");
+
+    var inputElement = d3.select("#input");
+
     var inputValue = inputElement.property("value");
 
-    var filtereddate = tableData.filter(sighting => sighting.datetime === inputValue);
-    buildTable(filtereddate);
-}
-d3.selectAll("#filter-btn").on("click", handleClick);
+    var filtereddata = tableData.filter(sighting => sighting.datetime === inputValue 
+        || sighting.city === inputValue || sighting.state === inputValue 
+        || sighting.country === inputValue || sighting.shape === inputValue);
+        buildTable(filtereddata);
+
+});
+
+
+

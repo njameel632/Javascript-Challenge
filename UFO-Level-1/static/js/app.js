@@ -20,7 +20,7 @@ function buildTable(ufos) {
 buildTable(tableData);
 
 
-//Creating a Function to take input date and filter as entries as per input
+// // Creating a Function to take input date and filter as entries as per input
 function handleClick() {
     var inputElement = d3.select("#datetime");
     var inputValue = inputElement.property("value");
